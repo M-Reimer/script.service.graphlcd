@@ -1,0 +1,45 @@
+msgid ""
+msgstr ""
+"Language: en\n"
+
+msgctxt "#32100"
+msgid "General"
+
+msgctxt "#32101"
+msgid "Driver name"
+
+msgctxt "#32102"
+msgid "Skin name"
+
+
+msgctxt "#32200"
+msgid "Backlight"
+
+msgctxt "#32201"
+msgid "Default brightness"
+
+msgctxt "#32202"
+msgid "Brightness on screensaver"
+
+
+msgctxt "#32300"
+msgid "Scrolling"
+
+msgctxt "#32301"
+msgid "Scroll text lines"
+
+msgctxt "#32302"
+msgid "never"
+
+msgctxt "#32303"
+msgid "once"
+
+msgctxt "#32304"
+msgid "always"
+
+msgctxt "#32305"
+msgid "Scroll speed"
+
+msgctxt "#32306"
+msgid "Scroll time interval"
+

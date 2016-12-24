@@ -1,0 +1,369 @@
+<?xml version="1.0"?>
+<skin version="1.2" name="default">
+
+  <font id="FontInfo"          url="ft2:VeraBd.ttf:9"               condition="le({ScreenHeight},65)"/>
+  <font id="FontChannel"       url="ft2:VeraBd.ttf:12"              condition="le({ScreenHeight},65)"/>
+  <font id="FontMenuTitle"     url="ft2:Vera.ttf:8"                 condition="le({ScreenHeight},65)"/>
+  <font id="FontMenuItem"      url="ft2:DejaVuSansCondensed.ttf:8"  condition="le({ScreenHeight},65)"/>
+  <font id="FontMenuButton"    url="ft2:DejaVuSansCondensed.ttf:8"  condition="le({ScreenHeight},65)"/>
+  <font id="FontTitle"         url="ft2:VeraBd.ttf:9"               condition="le({ScreenHeight},65)"/>
+  <font id="FontTitleSmall"    url="ft2:VeraBd.ttf:8"               condition="le({ScreenHeight},65)"/>
+  <font id="FontInfoSmall"     url="ft2:Vera.ttf:8"                 condition="le({ScreenHeight},65)"/>
+  <font id="FontInfoSmall2"    url="ft2:Vera.ttf:7"                 condition="le({ScreenHeight},65)"/>
+  <font id="FontTimes"         url="fnt:f8n.fnt"                    condition="le({ScreenHeight},65)"/>
+
+  <font id="FontTitle"         url="ft2:VeraBd.ttf:24"              condition="gt({ScreenHeight},128)"/>
+  <font id="FontTitleSmall"    url="ft2:Vera.ttf:20"                condition="gt({ScreenHeight},128)"/>
+  <font id="FontInfoSmall"     url="ft2:VeraBd.ttf:16"              condition="gt({ScreenHeight},128)"/>
+  <font id="FontInfoSmall2"    url="ft2:Vera.ttf:14"                condition="gt({ScreenHeight},128)"/>
+
+  <font id="FontInfo"          url="ft2:Vera.ttf:18"/>
+  <font id="FontChannel"       url="ft2:VeraBd.ttf:22"/>
+  <font id="FontMenuTitle"     url="ft2:Vera.ttf:15"/>
+  <font id="FontMenuItem"      url="ft2:Vera.ttf:12"/>
+  <font id="FontMenuButton"    url="ft2:VeraBd.ttf:9"/>
+  <font id="FontTitle"         url="ft2:VeraBd.ttf:20" />
+  <font id="FontTitleSmall"    url="ft2:Vera.ttf:14" />
+  <font id="FontInfoSmall"     url="ft2:VeraBd.ttf:10"/>
+  <font id="FontInfoSmall2"    url="ft2:Vera.ttf:10"/>
+  <font id="FontTimes"         url="ft2:Vera.ttf:14"/>
+
+  <variable id="LineThickness" value="1" condition="le({ScreenHeight},65)" default="2" />
+  <variable id="PaddingW"       value="0" condition="le({ScreenHeight},65)" />
+  <variable id="PaddingW"       value="2" condition="ge({ScreenHeight},240)" default="1" />
+  <variable id="PaddingH"       value="0" condition="le({ScreenHeight},65)" default="1" />
+
+  <!-- COLOURS -->
+  <!-- defines -->
+  <variable id="ColMonoFG"          value="{ForegroundColor}"/>
+  <variable id="ColMonoBG"          value="{BackgroundColor}"/>
+
+  <condblock condition="QueryFeature('iscolour')">
+    <!-- display id normal -->
+    <variable id="ColChannelBG"       value="'0x77300060'"       default="#ColMonoFG" />
+    <variable id="ColChannelInfo"     value="'white'"            default="#ColMonoBG" />
+    <variable id="ColDateTime"        value="'white'"            default="#ColMonoBG" />
+    <variable id="ColBorder"          value="'0x770000FF'"       default="#ColMonoBG" />
+    <variable id="ColLogoBG"          value="'black'"            default="#ColMonoBG" />
+    <variable id="ColLogoFG"          value="'cyan'"             default="#ColMonoFG" />
+    <variable id="ColSymbol"          value="'yellow'"           default="#ColMonoFG" />
+    <variable id="ColSymbolGreyed"    value="'0x333333'"         default="#ColMonoBG" />
+    <variable id="ColPresProgrText"   value="'0xCCCCFF'"         default="#ColMonoFG" />
+    <variable id="ColPresProgrBar"    value="'0xDDC0FFC0'"       default="#ColMonoFG" />
+    <variable id="ColPresProgrBarBrd" value="'0xAAFFFFFF'"       default="#ColMonoFG" />
+    <variable id="ColPresentTitle"    value="'0xAAC0FFFF'"       default="#ColMonoFG" />
+    <variable id="ColPresentShort"    value="'0xAAC0C0FF'"       default="#ColMonoFG" />
+    <variable id="ColFollowingTitle"  value="'0xAAFFFFFF'"       default="#ColMonoFG" />
+    <variable id="ColFollowingShort"  value="'0xAAFFFFFF'"       default="#ColMonoFG" />
+    <variable id="ColRecSymbol"       value="'magenta'"          default="#ColMonoFG" />
+    <variable id="ColRecText"         value="'magenta'"          default="#ColMonoFG" />
+    <variable id="ColFemonBar"        value="'0x550000FF'"       default="#ColMonoFG" />
+    <variable id="ColFemonText"       value="'0xDDDDDD'"         default="#ColMonoFG" />
+    <!-- display id volume -->
+    <variable id="ColVolumeBG"        value="'black'"            default="#ColMonoBG" />
+    <variable id="ColVolumeFG"        value="'white'"            default="#ColMonoFG" />
+    <variable id="ColVolumeBar"       value="'green'"            default="#ColMonoFG" />
+    <!-- display id audio -->
+    <variable id="ColAudioBG"         value="'0x77300060'"       default="#ColMonoBG" />
+    <variable id="ColAudioHeaderBG"   value="'green'"            default="#ColMonoFG" />
+    <variable id="ColAudioHeaderFG"   value="'black'"            default="#ColMonoBG" />
+    <variable id="ColAudioEntry"      value="'white'"            default="#ColMonoFG" />
+    <variable id="ColAudioEntryCurr"  value="'black'"            default="#ColMonoBG" />
+    <variable id="ColAudioSelected"   value="'cyan'"             default="#ColMonoFG" />
+    <!-- display id message -->
+    <variable id="ColMessageBG"       value="'0xAA000000'"       default="#ColMonoBG" />
+    <variable id="ColMessageFG"       value="'red'"              default="#ColMonoFG" />
+    <variable id="ColMessageIcon"     value="'0x77FF0000'"       default="#ColMonoFG" />
+    <variable id="ColMessageText"     value="'white'"            default="#ColMonoFG" />
+    <!-- display id replay -->
+    <variable id="ColReplayBorder"    value="#ColBorder"         default="#ColBorder" />  <!-- -->
+    <variable id="ColReplayLogo"      value="'cyan'"             default="#ColMonoFG" />
+    <variable id="ColReplayText"      value="'white'"            default="#ColMonoFG" />
+    <variable id="ColReplaySymbol"    value="'yellow'"           default="#ColMonoFG" />
+    <variable id="ColReplayBar"       value="'magenta'"          default="#ColMonoFG" />
+    <variable id="ColReplayTime"      value="'white'"            default="#ColMonoFG" />
+    <!-- display id menu -->
+    <!--variable id="ColMenuHeaderBG"    value="'yellow'"     condition="QueryFeature('iscolour')"/-->
+    <variable id="ColMenuHeaderBG"    value="#ColChannelBG"      default="#ColChannelBG"/> <!-- -->
+    <variable id="ColMenuHeaderFG"    value="'white'"            default="#ColChannelInfo"/>
+    <variable id="ColMenuBorder"      value="#ColMenuHeaderBG"   default="#ColBorder" />
+    <!--variable id="ColMenuEntryMarker" value="'yellow'"           default="#ColMonoFG" /-->
+    <variable id="ColMenuEntry"       value="'white'"            default="#ColMonoFG" />
+    <variable id="ColMenuEntryCurr"   value="'black'"            default="#ColMonoBG" />
+    <variable id="ColMenuSelected"    value="'0xFF00AAAA'"       default="#ColMonoFG" />
+    <variable id="ColMenuText"        value="'magenta'"          default="#ColMonoFG" />
+    <variable id="ColMenuButtonRBG"   value="'red'"              default="#ColMonoFG" />
+    <variable id="ColMenuButtonRFG"   value="'white'"            default="#ColMonoBG" />
+    <variable id="ColMenuButtonGBG"   value="'green'"            default="#ColMonoFG" />
+    <variable id="ColMenuButtonGFG"   value="'black'"            default="#ColMonoBG" />
+    <variable id="ColMenuButtonYBG"   value="'yellow'"           default="#ColMonoFG" />
+    <variable id="ColMenuButtonYFG"   value="'black'"            default="#ColMonoBG" />
+    <variable id="ColMenuButtonBBG"   value="'blue'"             default="#ColMonoFG" />
+    <variable id="ColMenuButtonBFG"   value="'white'"            default="#ColMonoBG" />
+    <variable id="ColMenuButtonBG"    value="'0xEEEEEE'"         default="#ColMonoFG" />
+    <variable id="ColMenuButtonFG"    value="'black'"            default="#ColMonoBG" />
+  </condblock>
+
+  <!-- TODO: This needs to be tuned to work on smaller LCD sizes -->
+  <display id="navigation">
+    <image x="div(sub({ScreenWidth},ImageWidth('{ResourcePath}/logos/kodi.pbm')),2)" y="1" color="black" path="{ResourcePath}/logos/kodi.pbm"/>
+    <text x1="0" x2="-1" y1="add(ImageHeight('{ResourcePath}/logos/kodi.pbm'),3)" y2="-1" color="black" align="left" font="FontTitleSmall">
+      {Info.System.Time}  {Info.System.Date:DDD dd.mm.}
+    </text>
+    <text x1="0" x2="-1" y1="add(ImageHeight('{ResourcePath}/logos/kodi.pbm'),23)" y2="-1" color="black" align="center" font="FontTitle">
+      {Info.System.CurrentControl}
+    </text>
+    <image x="0" y="sub({ScreenHeight},12)" color="#ColSymbol" path="'symbols/recording.pbm'" condition="{Bool.Pvr.IsRecording}"/>
+    <text x1="20" x2="-1" y="sub({ScreenHeight},12)" height="FontLineHeight('FontInfoSmall2')" color="#ColRecText" align="left" font="FontInfoSmall2">
+      {Info.Pvr.NowRecordingTitle}
+    </text>
+  </display>
+
+  <!-- TODO: This needs to be tuned to work on smaller LCD sizes -->
+  <display id="general">
+    <image x="div(sub({ScreenWidth},ImageWidth('{ResourcePath}/logos/kodi.pbm')),2)" y="1" color="black" path="{ResourcePath}/logos/kodi.pbm"/>
+    <text x1="0" x2="-1" y1="add(ImageHeight('{ResourcePath}/logos/kodi.pbm'),3)" y2="-1" color="black" align="left" font="FontTitleSmall">
+      {Info.System.Time} {Info.System.Date:DDD dd.mm.}
+    </text>
+    <text x1="0" x2="-1" y1="add(ImageHeight('{ResourcePath}/logos/kodi.pbm'),23)" y2="-1" color="black" align="center" font="FontTitle">
+      Kodi running...
+    </text>
+  </display>
+
+  <!-- TODO: This needs to be tuned to work on smaller LCD sizes -->
+  <!-- NOTE: As this is called at the very end, only a few basic -->
+  <!--       variables are available. Kodi variables are gone here! -->
+  <display id="shutdown">
+    <image x="div(sub({ScreenWidth},ImageWidth('{ResourcePath}/logos/kodi.pbm')),2)" y="1" color="black" path="{ResourcePath}/logos/kodi.pbm"/>
+    <text x1="0" x2="-1" y1="add(ImageHeight('{ResourcePath}/logos/kodi.pbm'),23)" y2="-1" color="black" align="center" font="FontTitle">
+      Shutting down...
+    </text>
+  </display>
+
+  <display id="tvshow">
+    <!-- LogoSymbSmall: 1: small, symbols left of logo, 0: large, symbols at bottom of logo -->
+    <variable id="LogoSymbSmall"  value="1" condition="le({ScreenHeight},65)" default="0" />
+    <!-- LogoSymbPos: 1: logo + symbols inside channel bar, 0: logo + symbols below channel bar -->
+    <variable id="LogoSymbPos"     value="1" condition="le({ScreenHeight},128)" default="0" />
+    <variable id="ChannelLogo"     value="'{ResourcePath}/logos/channels/{ChannelAlias}_m.glcd'" condition="#LogoSymbSmall"
+              default="'{ResourcePath}/logos/channels/{ChannelAlias}_l.pbm'"/>
+    <variable id="ShowChannelLogo" value="1" condition="{ChannelAlias}" default="0"/>
+    <variable id="LogoW"           value="40" condition="#LogoSymbSmall" default="64" />
+    <variable id="LogoH"           value="29" condition="#LogoSymbSmall" default="48" />
+    <variable id="LogoBorder"      value="1" />
+
+    <variable id="SymbolW"         value="ImageWidth('symbols/empty_small.pbm')"  condition="#LogoSymbSmall" default="ImageWidth('symbols/empty.pbm')" />
+    <variable id="SymbolH"         value="ImageHeight('symbols/empty_small.pbm')" condition="#LogoSymbSmall" default="ImageHeight('symbols/empty.pbm')"/>
+    <variable id="SymbolGap"       value="1"                                      condition="#LogoSymbSmall" default="2" />
+    <variable id="SymbolRecording" value="'symbols/recording_small.pbm'"          condition="#LogoSymbSmall" default="'symbols/recording.pbm'"/>
+
+    <!-- dimensions of logo + symbols + borders -->
+    <variable id="LogoSymbW"       value="add(#SymbolW,#SymbolGap,#LogoBorder,#LogoW,#LogoBorder)" condition="and(#LogoSymbSmall,#ShowChannelLogo)" />
+    <variable id="LogoSymbW"       value="add(#LogoBorder,#LogoW,#LogoBorder)"                     condition="and(not(#LogoSymbSmall),#ShowChannelLogo)" />
+    <variable id="LogoSymbW"       value="0" />
+
+    <variable id="LogoSymbH"       value="add(mul(#SymbolH,4),mul(#SymbolGap,3))"                  condition="#LogoSymbSmall" />
+    <variable id="LogoSymbH"       value="#SymbolH"                                                condition="and(not(#LogoSymbSmall),not(#ShowChannelLogo))" />
+    <variable id="LogoSymbH"       value="add(#LogoBorder,#LogoH,#LogoBorder,#SymbolGap,#SymbolH)" condition="and(not(#LogoSymbSmall),#ShowChannelLogo)" />
+    <variable id="LogoSymbH"       value="0" />
+
+    <variable id="ChannelBarW"     value="sub({ScreenWidth},mul(#LogoSymbPos,add(#LogoSymbW,4)))" condition="#ShowChannelLogo" default="{ScreenWidth}" />
+
+
+    <!-- ChannelBarH: PaddingH + Height(FontChannel) + 2x PaddingH + Height(FontInfo) + PaddingH -->
+    <variable id="ChannelBarH"     value="add(FontLineHeight('FontChannel'),FontLineHeight('FontInfo'),mul(#PaddingH,2))" />
+    <variable id="ChannelContentW" value="sub({ScreenWidth},#LogoW,mul(2,#LogoPadding))" condition="and(#ShowChannelLogo,#LogoTopRight)"
+                                 default="{ScreenWidth}" />
+
+    <variable id="LogoSymbX"       value="sub({ScreenWidth},1,#LogoSymbW)" />
+    <variable id="LogoSymbY"       value="0"  condition="#LogoSymbPos"  default="#ChannelBarH" />
+
+    <variable id="TimeBarW"        value="FontTextWidth('FontTimes','00:00 - 00:00')"/>
+    <variable id="TimeBarY"        value="add(#ChannelBarH,#LineThickness)"/>
+
+
+    <rectangle x="0" y="0" width="#ChannelBarW" height="#ChannelBarH" color="#ColChannelBG" filled="yes" />
+    <text x="#PaddingW" y="0" width="sub(#ChannelBarW,mul(#PaddingW,2),1)" height="FontLineHeight('FontChannel')" color="#ColChannelInfo" align="left" scrollmode="never" font="FontChannel">
+      {Info.VideoPlayer.ChannelNumber} | {Info.VideoPlayer.ChannelName}
+    </text>
+    <text condition="not(and(#LogoSymbSmall,#ShowChannelLogo))" x="#PaddingW" y="add(FontLineHeight('FontChannel'))" width="sub(#ChannelBarW,mul(#PaddingW,2),1)" height="FontLineHeight('FontInfo')" color="#ColDateTime" align="left" font="FontInfo">
+      {Info.System.Date:ddd dd.mm.}
+    </text>
+    <text condition="and(#LogoSymbSmall,#ShowChannelLogo)" x="#PaddingW" y="add(FontLineHeight('FontChannel'))" width="sub(#ChannelBarW,mul(#PaddingW,2),1)" height="FontLineHeight('FontInfo')" color="#ColDateTime" align="left" font="FontInfo">
+      {Info.System.Date:dd.mm.}
+    </text>
+    <text x="#PaddingW" y="add(FontLineHeight('FontChannel'))" width="sub(#ChannelBarW,mul(#PaddingW,2),1)" height="FontLineHeight('FontInfo')" color="#ColDateTime" align="right" font="FontInfo">
+      {Info.System.Time}
+    </text>
+    <!-- logo + symbols -->
+    <rectangle x="#LogoSymbX" y="#LogoSymbY" width="#LogoSymbW" height="#LogoSymbH" filled="yes" color="#ColLogoBG" condition="gt(#LogoSymbW,0)" />
+
+    <block condition="#ShowChannelLogo">
+      <image x="mul(-1,add(#LogoBorder,#LogoW))" y="add(#LogoSymbY,#LogoBorder)" width="#LogoW" height="#LogoH" bgcolor="#ColLogoBG" color="#ColLogoFG" path="#ChannelLogo"/>
+    </block>
+    <block condition="{Info.VideoPlayer.NextTitle}">
+      <text x1="0" x2="-1" y1="#TimeBarY" y2="-1" color="#ColPresProgrText" align="left" font="FontTimes">
+        {Info.Player.StartTime} - {Info.VideoPlayer.NextStartTime}
+      </text>
+      <rectangle x="#PaddingW" width="#TimeBarW" y="add(#TimeBarY,#PaddingH,FontLineHeight('FontTimes'))" height="6" color="#ColPresProgrBarBrd"/>
+      <progress x="add(#PaddingW,2)" width="sub(#TimeBarW,4)" y1="add(#TimeBarY,#PaddingH,FontLineHeight('FontTimes'),2)" height="2" color="#ColPresProgrBar" direction="0" current="{PlayerTime}" total="{PlayerDuration}"/>
+    </block>
+
+    <!-- ProginfoPlaceY:    Y start for title-info w/o and w/ limits because of logos + symbols
+         ProginfoPlaceYLim: Y start for title-info w/o any limits -->
+    <variable id="ProginfoPlaceY"      value="add(#TimeBarY,#PaddingH,FontLineHeight('FontTimes'),6,#PaddingH)" />
+    <variable id="ProginfoPlaceYLim"   value="#ProginfoPlaceY" condition="lt(add(#LogoSymbX,#LogoSymbH,#PaddingH),#ProginfoPlaceY)"
+                                     default="add(#LogoSymbY,#LogoSymbH,#PaddingH)" />
+    <!--variable id="PresentTextY"        value="sub(sub(#RecordingsLineY,FontLineHeight('FontInfo')),2)"/-->
+
+    <variable id="ProginfoLines"       value="5" condition="gt(sub({ScreenHeight},#ProginfoPlaceY,1),add(FontLineHeight('FontTitle'),FontLineHeight('FontTitleSmall'),FontLineHeight('FontInfoSmall'),FontLineHeight('FontInfoSmall2'),#LineThickness,1,FontLineHeight('FontInfoSmall2')))" />
+    <variable id="ProginfoLines"       value="4" condition="gt(sub({ScreenHeight},#ProginfoPlaceY,1),add(FontLineHeight('FontTitle'),FontLineHeight('FontTitleSmall'),FontLineHeight('FontInfoSmall'),#LineThickness,1,FontLineHeight('FontInfoSmall2')))" />
+    <variable id="ProginfoLines"       value="3" condition="gt(sub({ScreenHeight},#ProginfoPlaceY,1),add(FontLineHeight('FontTitle'),FontLineHeight('FontTitleSmall'),FontLineHeight('FontInfoSmall')))" />
+    <variable id="ProginfoLines"       value="2" condition="gt(sub({ScreenHeight},#ProginfoPlaceY,1),add(FontLineHeight('FontTitle'),FontLineHeight('FontInfoSmall')))" />
+    <variable id="ProginfoLines"       value="1" />
+
+    <variable id="ProginfoLine1YRaw"   value="#ProginfoPlaceY" />
+    <variable id="ProginfoLine2YRaw"   value="add(#ProginfoPlaceY,FontLineHeight('FontTitle'))" />
+    <variable id="ProginfoLine3YRaw"   value="add(#ProginfoPlaceY,FontLineHeight('FontTitle'),FontLineHeight('FontTitleSmall'))" />
+    <variable id="ProginfoLine4YRaw"   value="add(#ProginfoPlaceY,FontLineHeight('FontTitle'),FontLineHeight('FontTitleSmall'),FontLineHeight('FontInfoSmall'))" />
+    <variable id="ProginfoLine5YRaw"   value="add(#ProginfoPlaceY,FontLineHeight('FontTitle'),FontLineHeight('FontTitleSmall'),FontLineHeight('FontInfoSmall'),FontLineHeight('FontInfoSmall'))" />
+
+    <variable id="ProginfoGapH"        value="sub(#ProginfoLine5YRaw,#ProginfoLine4YRaw)" condition="eq(#ProginfoLines,5)" />
+    <variable id="ProginfoGapH"        value="sub(#ProginfoLine4YRaw,#ProginfoLine3YRaw)" condition="eq(#ProginfoLines,4)" />
+    <variable id="ProginfoGapH"        value="0" />
+
+    <!-- big displays: divide free space and add as gap(s) -->
+    <variable id="ProginfoLine1Y"      value="add(#ProginfoLine1YRaw,div(#ProginfoGapH,2))" />
+    <variable id="ProginfoLine2Y"      value="add(#ProginfoLine2YRaw,div(#ProginfoGapH,2))" />
+    <variable id="ProginfoLine3Y"      value="add(#ProginfoLine3YRaw,#ProginfoGapH)" />
+    <variable id="ProginfoLine4Y"      value="add(#ProginfoLine4YRaw,#ProginfoGapH)" />
+    <variable id="ProginfoLine5Y"      value="add(#ProginfoLine5YRaw,#ProginfoGapH)" />
+
+    <!-- Y starts for information lines -->
+    <variable id="PresentTitleY"       value="#ProginfoLine1Y" />
+    <variable id="PresentShortTextY"   value="#ProginfoLine2Y" />
+    <variable id="FollowingTitleY"     value="#ProginfoLine3Y" condition="gt(#ProginfoLines,2)" default="#ProginfoLine2Y" />
+    <variable id="FollowingShortTextY" value="#ProginfoLine4Y" condition="gt(#ProginfoLines,3)" default="0" />
+    <variable id="RecordingsAreaY"     value="#ProginfoLine5Y" condition="eq(#ProginfoLines,5)" />
+    <variable id="RecordingsAreaY"     value="#ProginfoLine4Y" condition="eq(#ProginfoLines,4)" />
+    <variable id="RecordingsAreaY"     value="#ProginfoLine3Y" condition="eq(#ProginfoLines,3)" default="#ProginfoLine2Y" />
+
+    <!-- width for information lines (default: screenwidth, except a line would overlap logo/symbol area -->
+    <variable id="PresentTitleW"       value="-1" condition="ge(#PresentTitleY,#ProginfoPlaceYLim)" default="sub(#LogoSymbX,1,#PaddingW)" />
+    <variable id="PresentShortTextW"   value="-1" condition="ge(#PresentShortTextY,#ProginfoPlaceYLim)" default="sub(#LogoSymbX,1,#PaddingW)" />
+    <variable id="FollowingTitleW"     value="-1" condition="ge(#FollowingTitleY,#ProginfoPlaceYLim)" default="sub(#LogoSymbX,1,#PaddingW)" />
+    <variable id="FollowingShortTextW" value="-1" condition="ge(#FollowingShortTextY,#ProginfoPlaceYLim)" default="sub(#LogoSymbX,1,#PaddingW)" />
+    <variable id="RecordingsAreaW"     value="-1" condition="ge(#RecordingsAreaY,#ProginfoPlaceYLim)" default="sub(#LogoSymbX,1,#PaddingW)" />
+
+    <variable id="RecordingsLineY"     value="#RecordingsAreaY"/>
+    <variable id="RecordingsTextY"     value="add(#RecordingsLineY,#LineThickness,1)" />
+    <variable id="RecordingsSymbolY"   value="add(#RecordingsTextY,div(sub(FontLineHeight('FontInfoSmall2'),#SymbolH),2))"/>
+
+
+    <!--variable id="PresentShortTextY"   value="add(#PresentTitleY,FontLineHeight('FontTitle'))" /-->
+    <!--variable id="FollowingTextY"      value="add(#PresentShortTextY,FontLineHeight('FontTitleSmall'))" /-->
+    <!--variable id="FollowingShortTextY" value="add(#FollowingTextY,FontLineHeight('FontInfoSmall'))" /-->
+
+    <text x="0" y="#PresentTitleY" width="#PresentTitleW" height="FontLineHeight('FontTitle')" color="#ColPresentTitle" align="left" font="FontTitle">
+      {Info.VideoPlayer.Title}
+    </text>
+
+    <text x="0" y="#PresentShortTextY" condition="gt(#ProginfoLines,2)" width="#PresentShortTextW" height="FontLineHeight('FontTitleSmall')" color="#ColPresentTitle" align="left" font="FontTitleSmall">
+      {Info.VideoPlayer.EpisodeName}
+    </text>
+    <block condition="{Info.VideoPlayer.NextTitle}">
+      <text x="0" y="#FollowingTitleY" condition="or(gt(#ProginfoLines,3),and(ge(#ProginfoLines,2),not({Bool.Pvr.IsRecording})))" height="FontLineHeight('FontInfoSmall')" color="#ColPresentTitle" align="left" font="FontInfoSmall">
+        {Info.VideoPlayer.NextStartTime}
+      </text>
+      <variable id="TempTimeString" value="'{Info.VideoPlayer.NextStartTime}  '"/>
+      <text x="FontTextWidth('FontInfoSmall','#TempTimeString')" condition="or(gt(#ProginfoLines,3),and(ge(#ProginfoLines,2),not({Bool.Pvr.IsRecording})))" y="#FollowingTitleY" width="sub(#FollowingTitleW,FontTextWidth('FontInfoSmall','#TempTimeString'))" height="FontLineHeight('FontInfoSmall')" color="#ColPresentTitle" align="left" font="FontInfoSmall">
+        {Info.VideoPlayer.NextTitle}
+      </text>
+    </block>
+
+    <rectangle x1="0" x2="-1" y="#RecordingsLineY" height="#LineThickness" condition="{Bool.Pvr.IsRecording}" color="#ColBorder" filled="yes"/>
+    <image x="0" y="#RecordingsSymbolY" color="#ColSymbol" path="#SymbolRecording" condition="{Bool.Pvr.IsRecording}"/>
+    <text x1="add(#SymbolW,2)" x2="-1" y="#RecordingsTextY" height="FontLineHeight('FontInfoSmall2')" color="#ColRecText" align="left" font="FontInfoSmall2">
+      {Info.Pvr.NowRecordingTitle}
+    </text>
+  </display>
+
+  <display id="volume">
+    <variable id="VolumeBarX" value="20"/>
+    <variable id="VolumeBarW" value="sub({ScreenWidth},mul(2,#VolumeBarX))"/>
+    <variable id="VolumeBarH" value="30"/>
+    <variable id="VolumeBarY" value="div(sub({ScreenHeight},#VolumeBarH),2)"/>
+    <variable id="MuteImage" value="'images/mute.pbm'"/>
+    <variable id="MuteImageW" value="ImageWidth(#MuteImage)"/>
+    <variable id="MuteImageH" value="ImageHeight(#MuteImage)"/>
+    <rectangle x1="#VolumeBarX" y1="#VolumeBarY" width="#VolumeBarW" height="#VolumeBarH" color="#ColVolumeBG" filled="yes" radius="3"/>
+    <rectangle x1="add(#VolumeBarX,2)" y1="add(#VolumeBarY,2)" width="sub(#VolumeBarW,4)" height="sub(#VolumeBarH,4)" color="#ColVolumeFG" radius="2"/>
+    <block condition="not({Bool.Player.Muted})">
+      <progress x1="add(#VolumeBarX,4)" y1="add(#VolumeBarY,4)" width="sub(#VolumeBarW,8)" height="sub(#VolumeBarH,8)" color="#ColVolumeBar" direction="0" current="{VolumeCurrent}" total="{VolumeTotal}"/>
+    </block>
+    <block condition="{Bool.Player.Muted}">
+      <image x="div(sub({ScreenWidth},#MuteImageW),2)" y="div(sub({ScreenHeight},#MuteImageH),2)" color="#ColVolumeBar" path="#MuteImage"/>
+    </block>
+  </display>
+
+
+  <display id="replay">
+    <variable id="ReplayProgressH" value="14"/>
+    <variable id="ReplayProgressGap" value="1"/>
+    <variable id="ReplayTimeY" value="mul(FontLineHeight('FontInfo'),-1)"/>
+    <variable id="ReplayProgressY" value="sub(#ReplayTimeY,#ReplayProgressH,#ReplayProgressGap)"/>
+    <variable id="ReplayLogoName" value="'replay-file'" default="'replay-music'" condition="{Bool.Player.HasVideo}"/>
+    <variable id="ReplayLogoSuffix" value="'_m.glcd'" default="'_l.glcd'" condition="le({ScreenHeight},64)"/>
+    <variable id="ReplayLogo" value="'{ResourcePath}/logos/replay/#ReplayLogoName#ReplayLogoSuffix'"/>
+    <variable id="ReplayLogoW" value="ImageWidth(#ReplayLogo)" />
+    <variable id="ReplayLogoH" value="ImageHeight(#ReplayLogo)" />
+    <variable id="ReplayLogoX" value="sub({ScreenWidth},#ReplayLogoW)" />
+
+<!--    <block condition="{SettingShowReplayLogo}">-->
+      <image x="#ReplayLogoX" y="0" color="#ColReplayLogo" path="#ReplayLogo"/>
+      <rectangle x="sub(#ReplayLogoX,#LineThickness)" width="#LineThickness" y="0" height="#LogoH" color="#ColReplayBorder" filled="yes"/>
+      <rectangle x1="sub(#ReplayLogoX,#LineThickness)" x2="-1" y="#ReplayLogoH" height="#LineThickness" color="#ColReplayBorder" filled="yes"/>
+      <text x1="0" x2="sub(#ReplayLogoX,#LineThickness,2)" y1="0" y2="#ReplayProgressY" color="#ColReplayText" align="left" multiline="yes" font="FontInfo">
+        {Info.Player.Title}
+      </text>
+<!--    </block>-->
+<!--    <block condition="not({SettingShowReplayLogo})">
+      <text x1="0" x2="-1" y1="0" y2="#ReplayProgressY" color="#ColReplayText" align="left" multiline="yes" font="FontInfo">
+        {Info.Player.Title}
+      </text>
+      </block>
+      -->
+    <rectangle x1="0" y1="#ReplayProgressY" width="15" height="14" color="#ColReplayBorder"/>
+    <image x="1" y="add(#ReplayProgressY,1)" color="#ColReplayLogo" path="symbols/replay-play.pbm" condition="{Bool.Player.Playing}"/>
+    <image x="1" y="add(#ReplayProgressY,1)" color="#ColReplayLogo" path="symbols/replay-pause.pbm" condition="{Bool.Player.Paused}"/>
+    <image x="1" y="add(#ReplayProgressY,1)" color="#ColReplayLogo" path="symbols/replay-fast-fwd.pbm" condition="{Bool.Player.Forwarding}"/>
+    <image x="1" y="add(#ReplayProgressY,1)" color="#ColReplayLogo" path="symbols/replay-fast-rwd.pbm" condition="{Bool.Player.Rewinding}"/>
+    <rectangle x1="14" x2="-1" y1="#ReplayProgressY" height="#ReplayProgressH" color="#ColReplayBorder"/>
+    <progress x1="16" x2="-3" y1="add(#ReplayProgressY,2)" height="sub(#ReplayProgressH,4)" color="#ColReplayBar" direction="0" current="{PlayerTime}" total="{PlayerDuration}"/>
+    <text x1="0" x2="-1" y1="#ReplayTimeY" y2="-1" color="#ColReplayText" align="left" font="FontInfo">
+    {Info.Player.Time}
+    </text>
+    <text x1="0" x2="-1" y1="#ReplayTimeY" y2="-1" color="#ColReplayText" align="right" font="FontInfo">
+    {Info.Player.Duration}
+    </text>
+  </display>
+
+  <display id="menu">
+    <variable id="ButtonPitch" value="div({ScreenWidth},4)"/>
+    <variable id="ButtonWidth" value="sub(#ButtonPitch,2)"/>
+    <variable id="ButtonHeight" value="add(FontLineHeight('FontMenuButton'),2)"/>
+<!--    <variable id="ButtonY" value="mul(#ButtonHeight,-1)"/>-->
+    <variable id="ItemHeight" value="FontLineHeight('FontMenuItem')"/>
+
+    <rectangle x1="0" y1="0" width="{ScreenWidth}" height="add(FontLineHeight('FontMenuTitle'),1)" color="#ColMenuHeaderBG" filled="yes"/>
+    <text x1="#PaddingW" x2="-1" height="FontLineHeight('FontMenuTitle')" color="#ColMenuHeaderFG" font="FontMenuTitle" condition="not({Info.Container.FolderName})">{Info.System.CurrentWindow}</text>
+    <text x1="#PaddingW" x2="-1" height="FontLineHeight('FontMenuTitle')" color="#ColMenuHeaderFG" font="FontMenuTitle" condition="{Info.Container.FolderName}" scrollmode="always">{Info.System.CurrentWindow} - {Info.Container.FolderName}</text>
+    <rectangle x1="0" y1="add(FontLineHeight('FontMenuTitle'),2)" x2="-1" height="#LineThickness" color="#ColMenuBorder" filled="yes"/>
+    <list x1="0" y1="add(FontLineHeight('FontMenuTitle'),4)" x2="-1" y2="-1">
+      <item height="#ItemHeight"/>
+      <rectangle x="0" y="0" height="add(#ItemHeight,1)" color="#ColMenuSelected" condition="{IsMenuCurrent}" filled="yes"/>
+      <text x1="#PaddingW" x2="-1" y1="0" height="#ItemHeight" color="#ColMenuEntryCurr" font="FontMenuItem" condition="{IsMenuCurrent}">{MenuItem}</text>
+      <text x1="#PaddingW" x2="-1" y1="0" height="#ItemHeight" color="#ColMenuEntry" font="FontMenuItem" condition="not({IsMenuCurrent})">{MenuItem}</text>
+    </list>
+  </display>
+</skin>

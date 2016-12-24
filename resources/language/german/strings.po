@@ -1,0 +1,44 @@
+msgid ""
+msgstr ""
+"Language: de\n"
+
+msgctxt "#32100"
+msgid "Allgemein"
+
+msgctxt "#32101"
+msgid "Treiber Name"
+
+msgctxt "#32102"
+msgid "Skin Name"
+
+
+msgctxt "#32200"
+msgid "Hintergrundbeleuchtung"
+
+msgctxt "#32201"
+msgid "Standardhelligkeit"
+
+msgctxt "#32202"
+msgid "Helligkeit bei Bildschirmschoner"
+
+
+msgctxt "#32300"
+msgid "Scrolling"
+
+msgctxt "#32301"
+msgid "Textzeilen scrollen"
+
+msgctxt "#32302"
+msgid "niemals"
+
+msgctxt "#32303"
+msgid "einmal"
+
+msgctxt "#32304"
+msgid "ständig"
+
+msgctxt "#32305"
+msgid "Scrollgeschwindigkeit"
+
+msgctxt "#32306"
+msgid "Zeitabstand beim Scrollen"
