@@ -17,6 +17,7 @@ all: $(PRGNAME)
 	$(CXX) $(CXXEXTRA) $(CXXFLAGS) -c -fPIC $(DEFINES) $(INCLUDES) $<
 
 $(PRGNAME): $(OBJS)
+	@mkdir -p $(dir $(PRGNAME))
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -shared -rdynamic $(OBJS) $(LIBS) $(LIBDIRS) -o $(PRGNAME)
 
 install: $(PRGNAME)
