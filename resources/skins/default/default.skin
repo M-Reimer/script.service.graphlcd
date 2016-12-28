@@ -193,7 +193,7 @@
       {Info.System.Date:dd.mm.}
     </text>
     <text x="#PaddingW" y="add(FontLineHeight('FontChannel'))" width="sub(#ChannelBarW,mul(#PaddingW,2),1)" height="FontLineHeight('FontInfo')" color="#ColDateTime" align="right" font="FontInfo">
-      {Info.System.Time}
+      {Info.System.Time:hh\:mm}
     </text>
     <!-- logo + symbols -->
     <rectangle x="#LogoSymbX" y="#LogoSymbY" width="#LogoSymbW" height="#LogoSymbH" filled="yes" color="#ColLogoBG" condition="gt(#LogoSymbW,0)" />
