@@ -207,6 +207,7 @@ if __name__ == '__main__':
   loaded_driver = ""
   loaded_skin = ""
   config_loaded = 0
+  current_brightness = -1
   wait_time = 0.1
   monitor = xbmc.Monitor()
   while not monitor.abortRequested():
@@ -247,7 +248,7 @@ if __name__ == '__main__':
     skin_setting = addon.getSetting('skin')
     if loaded_skin != skin_setting:
       loaded_skin = ""
-      LogInfo("Loading skin");
+      LogInfo("Loading skin")
       try:
         graphlcd.ParseSkin(skin_setting)
         loaded_skin = skin_setting
@@ -259,6 +260,17 @@ if __name__ == '__main__':
         NotifyError("Parsing of Skin failed. Check Kodi log file!")
         wait_time = 7
         continue
+
+    # Set brightness
+    brightness_setting = 0
+    if xbmc.getCondVisibility('System.ScreenSaverActive'):
+      brightness_setting = int(addon.getSetting('brightness_screensave'))
+    else:
+      brightness_setting = int(addon.getSetting('brightness'))
+    if current_brightness != brightness_setting:
+      LogInfo("Setting brightness")
+      graphlcd.SetBrightness(brightness_setting)
+      current_brightness = brightness_setting
 
     # Render display
     graphlcd.Render(GetCurrentScreenName(), GetCurrentOverlayName(), GetTokenValue)
