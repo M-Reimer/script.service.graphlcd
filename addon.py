@@ -228,6 +228,7 @@ if __name__ == '__main__':
     # Load driver
     driver_setting = addon.getSetting('driver')
     if loaded_driver != driver_setting:
+      loaded_driver = ""
       LogInfo("Loading driver")
       try:
         graphlcd.CreateDriver(driver_setting)
@@ -245,6 +246,7 @@ if __name__ == '__main__':
     # Load skin
     skin_setting = addon.getSetting('skin')
     if loaded_skin != skin_setting:
+      loaded_skin = ""
       LogInfo("Loading skin");
       try:
         graphlcd.ParseSkin(skin_setting)
