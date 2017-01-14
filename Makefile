@@ -24,6 +24,7 @@ install: $(PRGNAME)
 	install -d $(DESTDIR)$(ADDONDIR)
 	install -m 644 addon.py $(DESTDIR)$(ADDONDIR)
 	install -m 644 addon.xml $(DESTDIR)$(ADDONDIR)
+	install -m 644 icon.png $(DESTDIR)$(ADDONDIR)
 	cp -vr resources $(DESTDIR)$(ADDONDIR)
 
 clean:
