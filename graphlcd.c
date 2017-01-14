@@ -171,21 +171,25 @@ extern "C" {
   // Loads configuration file.
   // Parameters:
   //   Optional string value with config file path. Falls back to default.
-  // Return: Success status
+  // Return: None
   static PyObject*
   graphlcd_configload(PyObject* self, PyObject* args) {
     const char* path = kDefaultConfigFile;
     if (!PyArg_ParseTuple(args, "|s", &path))
       return NULL;
 
-    int status = (GLCD::Config.Load(path) == true) ? 1 : 0;
-    return Py_BuildValue("i", status);
+    if (GLCD::Config.Load(path) != true) {
+      PyErr_SetString(PyExc_IOError, "Failed to read graphlcd.conf");
+      return NULL;
+    }
+
+    return Py_BuildValue("");
   }
 
   // This function is used to tell the "C part" about the resource path.
   // Parameters:
   //   One string which is meant to be the full (absolute) resource path
-  // Return: Success status
+  // Return: None
   static PyObject*
   graphlcd_setresourcepath(PyObject* self, PyObject* args) {
     const char* path;
@@ -202,7 +206,7 @@ extern "C" {
   // Loads the driver for the display given by display driver name.
   // Parameters:
   //   One string representing the driver name
-  // Return: Success status
+  // Return: None
   static PyObject*
   graphlcd_createdriver(PyObject* self, PyObject* args) {
     const char* displayname;
@@ -218,8 +222,10 @@ extern "C" {
       }
     }
 
-    if (displayNumber == -1)
+    if (displayNumber == -1) {
+      PyErr_SetString(PyExc_NameError, "No such display in graphlcd.conf");
       return NULL;
+    }
 
     if (gLcd)
       gLcd->DeInit();
@@ -230,18 +236,23 @@ extern "C" {
     if (!gLcd)
       return NULL;
 
-    // Don't return "NULL" if Init fails. Just return "false", indicating
-    // an error, so the user is able to select his proper device initially.
-    if (gLcd->Init() != 0)
-      return Py_BuildValue("i", 0);
+    // This happens if wrong LCD type is selected in settings or if the LCD
+    // is not connected/detected when Kodi starts
+    if (gLcd->Init() != 0) {
+      gLcd->DeInit();
+      delete gLcd;
+      gLcd = NULL;
+      PyErr_SetString(PyExc_IOError, "Failed to access LCD");
+      return NULL;
+    }
 
-    return Py_BuildValue("i", 1);
+    return Py_BuildValue("");
   }
 
   // Actually parses skin XML file. The skin is expected in the resource dir.
   // Parameters:
   //   One string with skin name
-  // Return: Success status
+  // Return: None
   static PyObject*
   graphlcd_parseskin(PyObject* self, PyObject* args) {
     const char* name;
@@ -258,7 +269,7 @@ extern "C" {
     // Check if path exists and is a file. Graphlcd segfaults otherwise!
     struct stat s;
     if (stat(path.c_str(), &s) != 0 || !S_ISREG(s.st_mode)) {
-      fprintf(stderr, "GLCD Parser error: File does not exist %s\n", path.c_str());
+      PyErr_SetString(PyExc_IOError, "Skin file does not exist");
       return NULL;
     }
 
@@ -269,12 +280,13 @@ extern "C" {
     delete gSkin;
     gSkin = GLCD::XmlParse(*gSkinConfig, "test", path, errorString);
     if (!gSkin) {
+      PyErr_SetString(PyExc_SyntaxError, "Parsing of Skin failed");
       fprintf(stderr, "GLCD Parser error: %s\n", errorString.c_str());
       return NULL;
     }
 
     gSkin->SetBaseSize(gLcd->Width(), gLcd->Height());
-    return Py_BuildValue("i", 1);
+    return Py_BuildValue("");
   }
 
   // Renders the given Skin part
@@ -282,7 +294,7 @@ extern "C" {
   //   One string representing main screen name (rendered first)
   //   One string representing the overlay (rendered above main screen)
   //   One python object which has to be the python side token callback
-  // Return: Success status
+  // Return: None
   static PyObject*
   graphlcd_render(PyObject* self, PyObject* args) {
     const char* screenname;
@@ -320,13 +332,13 @@ extern "C" {
     gLcd->Refresh(true); // void
     delete screen;
 
-    return Py_BuildValue("i", 1);
+    return Py_BuildValue("");
   }
 
   // Sets display brightness between 0 and 100
   // Parameters:
   //   One integer with wanted screen brightness in percent (0 to 100)
-  // Return: Success status
+  // Return: None
   static PyObject*
   graphlcd_setbrightness(PyObject* self, PyObject* args) {
     unsigned int brightness;
@@ -341,12 +353,12 @@ extern "C" {
       return NULL;
 
     gLcd->SetBrightness(brightness);
-    return Py_BuildValue("i", 1);
+    return Py_BuildValue("");
   }
 
   // De-initializes graphlcd, frees used memory and resets pointers
   // Parameters: none
-  // Return: Always 1 (true)
+  // Return: None
   static PyObject*
   graphlcd_shutdown(PyObject* self, PyObject* args) {
     if (gLcd)
@@ -357,7 +369,7 @@ extern "C" {
     gSkin = NULL;
     delete gSkinConfig;
     gSkinConfig = NULL;
-    return Py_BuildValue("i", 1);
+    return Py_BuildValue("");
   }
 
   static PyMethodDef GraphlcdMethods[] = {

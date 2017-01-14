@@ -27,6 +27,16 @@ sys.path.insert(0, resourcespath + '/lib')
 import graphlcd
 
 
+def NotifyError(aMessage):
+  xbmcgui.Dialog().notification("Graphlcd", aMessage, xbmcgui.NOTIFICATION_ERROR)
+def NotifyInfo(aMessage):
+  xbmcgui.Dialog().notification("Graphlcd", aMessage, xbmcgui.NOTIFICATION_INFO)
+def LogInfo(aMessage):
+  xbmc.log("Graphlcd: " + aMessage)
+def LogDebug(aMessage):
+  xbmc.log("Graphlcd: " + aMessage, xbmc.LOGDEBUG)
+
+
 # http://kodi.wiki/view/Window_IDs
 class WINDOW_IDS:
   WINDOW_HOME                  = 10000
@@ -67,8 +77,9 @@ def ReadChannelsAlias():
 # current state
 def GetCurrentScreenName():
   windowid = xbmcgui.getCurrentWindowId()
-  sys.stderr.write('Window ID: ' + str(windowid) + "\n")
-  sys.stderr.write('NumItems: ' + xbmc.getInfoLabel('Container.NumItems') + "\n")
+  LogDebug('Window ID: ' + str(windowid))
+  LogDebug('NumItems: ' + xbmc.getInfoLabel('Container.NumItems'))
+
   if windowid == WINDOW_IDS.WINDOW_HOME:
     return 'navigation'
   if windowid == WINDOW_IDS.WINDOW_MUSIC_NAV or \
@@ -185,7 +196,7 @@ def GetTokenValue(aVariableName, aAttrib, aIndex, aMaxItems):
     return ''
 
   else:
-    sys.stderr.write('Graphlcd: Invalid variable name requested: ' + aVariableName + "\n")
+    LogInfo('Invalid variable name requested: ' + aVariableName + "\n")
     return ''
 
 if __name__ == '__main__':
@@ -193,8 +204,8 @@ if __name__ == '__main__':
 
   ReadChannelsAlias()
 
-  loaded_driver = 0
-  loaded_skin = 0
+  loaded_driver = ""
+  loaded_skin = ""
   config_loaded = 0
   wait_time = 0.1
   monitor = xbmc.Monitor()
@@ -205,38 +216,50 @@ if __name__ == '__main__':
 
     # Try to load config if not already done
     if not config_loaded:
-      sys.stderr.write("Loading config\n");
-      config_loaded = graphlcd.ConfigLoad()
-      if not config_loaded:
-        sys.stderr.write("Graphlcd: Can't read graphlcd.conf\n")
-        wait_time = 1
+      LogInfo("Loading config")
+      try:
+        graphlcd.ConfigLoad()
+        config_loaded = 1
+      except IOError:
+        NotifyError("Failed to read /etc/graphlcd.conf")
+        wait_time = 7
         continue
 
     # Load driver
     driver_setting = addon.getSetting('driver')
     if loaded_driver != driver_setting:
-      sys.stderr.write("Loading driver\n");
-      if graphlcd.CreateDriver(driver_setting):
+      LogInfo("Loading driver")
+      try:
+        graphlcd.CreateDriver(driver_setting)
         loaded_driver = driver_setting
-        loaded_skin = 0 # Reload skin if driver has changed!
-      else:
-        sys.stderr.write('Graphlcd: Failed to create driver ' + driver_setting + "\n")
-        wait_time = 1
+        loaded_skin = "" # Reload skin if driver has changed!
+      except NameError:
+        NotifyError("No display with name " + driver_setting + " defined in /etc/graphlcd.conf")
+        wait_time = 7
+        continue
+      except IOError:
+        NotifyInfo("Failed to access LCD " + driver_setting)
+        wait_time = 7
         continue
 
     # Load skin
     skin_setting = addon.getSetting('skin')
     if loaded_skin != skin_setting:
-      sys.stderr.write("Loading skin\n");
-      if graphlcd.ParseSkin(skin_setting):
+      LogInfo("Loading skin");
+      try:
+        graphlcd.ParseSkin(skin_setting)
         loaded_skin = skin_setting
-      else:
-        sys.stderr.write('Graphlcd: Failed to load skin ' + skin_setting + "\n")
+      except IOError:
+        NotifyError("Skin file for Skin " + skin_setting + " does not exist!")
+        wait_time = 7
+        continue
+      except SyntaxError:
+        NotifyError("Parsing of Skin failed. Check Kodi log file!")
+        wait_time = 7
         continue
 
     # Render display
-    if not graphlcd.Render(GetCurrentScreenName(), GetCurrentOverlayName(), GetTokenValue):
-      sys.stderr.write("Graphlcd: Failed to render display\n")
+    graphlcd.Render(GetCurrentScreenName(), GetCurrentOverlayName(), GetTokenValue)
 
 
   # Before stopping Addon, send the "shutdown screen" to the LCD.
