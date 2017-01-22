@@ -25,7 +25,8 @@ install: $(PRGNAME)
 	install -m 644 addon.py $(DESTDIR)$(ADDONDIR)
 	install -m 644 addon.xml $(DESTDIR)$(ADDONDIR)
 	install -m 644 icon.png $(DESTDIR)$(ADDONDIR)
+	rm -f resources/lib/*.pyo
 	cp -vr resources $(DESTDIR)$(ADDONDIR)
 
 clean:
-	@-rm -f $(OBJS) $(PRGNAME) *~
+	@-rm -f $(OBJS) $(PRGNAME) resources/lib/*.pyo *~

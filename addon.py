@@ -21,10 +21,10 @@ import string
 
 addon         = xbmcaddon.Addon()
 resourcespath = xbmc.translatePath(addon.getAddonInfo('path')) + '/resources'
-gChannelAlias = {}
 
 sys.path.insert(0, resourcespath + '/lib')
 import graphlcd
+import channelsalias
 
 
 def NotifyError(aMessage):
@@ -62,15 +62,6 @@ def GetTime(aVariable):
   if len(parts) != 3:
     return ""
   return int(parts[0]) * 60 * 60 + int(parts[1]) * 60 + int(parts[2])
-
-
-# Reads "channels.alias" file. Fills global "gChannelAlias" variable
-def ReadChannelsAlias():
-  fh = open(resourcespath + '/channels.alias', 'r')
-  for line in fh:
-    parts = line.strip().split(':')
-    if len(parts) == 2:
-      gChannelAlias[parts[0]] = parts[1]
 
 
 # Returns the name of the screen which should appear on the LCD in Kodi's
@@ -147,11 +138,7 @@ def GetTokenValue(aVariableName, aAttrib, aIndex, aMaxItems):
 
   # Channel alias
   elif aVariableName == 'ChannelAlias':
-    channelname = xbmc.getInfoLabel('VideoPlayer.ChannelName')
-    if channelname in gChannelAlias:
-      return gChannelAlias[channelname]
-    else:
-      return 0
+    return channelsalias.GetChannelAlias(xbmc.getInfoLabel('VideoPlayer.ChannelName'))
 
   # Menu variables
   elif aVariableName == 'MenuItem' or \
@@ -202,7 +189,7 @@ def GetTokenValue(aVariableName, aAttrib, aIndex, aMaxItems):
 if __name__ == '__main__':
   graphlcd.SetResourcePath(resourcespath)
 
-  ReadChannelsAlias()
+  channelsalias.Load(resourcespath + '/channels.alias')
 
   loaded_driver = ""
   loaded_skin = ""
