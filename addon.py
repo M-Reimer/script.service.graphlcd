@@ -55,14 +55,6 @@ class WINDOW_IDS:
 def GetPlayerVolume():
   return 60 + int(float(string.replace(string.replace(xbmc.getInfoLabel('Player.Volume'), ',', '.'), ' dB', '')))
 
-# Returns "cleaned up" time values (integer only, in seconds)
-def GetTime(aVariable):
-  timestr = xbmc.getInfoLabel(aVariable + '(hh:mm:ss)')
-  parts = timestr.split(':')
-  if len(parts) != 3:
-    return ""
-  return int(parts[0]) * 60 * 60 + int(parts[1]) * 60 + int(parts[2])
-
 
 # Returns the name of the screen which should appear on the LCD in Kodi's
 # current state
@@ -126,9 +118,11 @@ def GetTokenValue(aVariableName, aAttrib, aIndex, aMaxItems):
 
   # Playback times
   elif aVariableName == 'PlayerDuration':
-    return GetTime('Player.Duration')
+    try: return int(xbmc.Player().getTotalTime())
+    except: return ''
   elif aVariableName == 'PlayerTime':
-    return GetTime('Player.Time')
+    try: return int(xbmc.Player().getTime())
+    except: return ''
 
   # Scroll settings
   elif aVariableName == 'ScrollMode' or \
