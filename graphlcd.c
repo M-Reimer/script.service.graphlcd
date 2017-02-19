@@ -309,28 +309,23 @@ extern "C" {
     if (!gLcd || !gSkin)
       return NULL;
 
-    GLCD::cBitmap* screen = new GLCD::cBitmap(gLcd->Width(), gLcd->Height());
-    screen->Clear();
+    GLCD::cBitmap screen(gLcd->Width(), gLcd->Height());
+    screen.Clear();
 
     GLCD::cSkinDisplay* display = gSkin->GetDisplay(screenname);
-    if (!display) {
-      delete screen;
+    if (!display)
       return NULL;
-    }
-    display->Render(screen); // void
+    display->Render(&screen); // void
 
     if (strlen(overlayname) != 0) {
       display = gSkin->GetDisplay(overlayname);
-      if (!display) {
-        delete screen;
+      if (!display)
         return NULL;
-      }
-      display->Render(screen);
+      display->Render(&screen);
     }
 
-    gLcd->SetScreen(screen->Data(), screen->Width(), screen->Height()); // void
+    gLcd->SetScreen(screen.Data(), screen.Width(), screen.Height()); // void
     gLcd->Refresh(true); // void
-    delete screen;
 
     return Py_BuildValue("");
   }
