@@ -10,6 +10,8 @@ This Addon requires graphlcd-base to be installed and it is strongly recommended
 
 A list of supported displays can be found on the project homepages. Recommended displays are the USB Displays "SDC Megtron LCD" or "Alphacool LCD". Currently both of them unfortunately are sold out...
 
+![Kodi Graphlcd output](https://raw.githubusercontent.com/M-Reimer/script.service.graphlcd/master/icon.png "Kodi Graphlcd output")
+
 Setup
 -----
 
