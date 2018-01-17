@@ -82,7 +82,7 @@ def GetCurrentScreenName():
     else:
       return 'replay'
   else:
-    return 'general'
+    return 'navigation'
 
 # Returns name of the screen which is to be drawn above the current main screen
 # Currently only for the "volume" overlay
