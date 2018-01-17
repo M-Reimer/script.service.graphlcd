@@ -106,11 +106,11 @@
 
   <!-- TODO: This needs to be tuned to work on smaller LCD sizes -->
   <display id="navigation">
-    <image x="div(sub({ScreenWidth},ImageWidth('{ResourcePath}/logos/kodi.pbm')),2)" y="1" color="black" path="{ResourcePath}/logos/kodi.pbm"/>
-    <text x1="0" x2="-1" y1="add(ImageHeight('{ResourcePath}/logos/kodi.pbm'),3)" y2="-1" color="black" align="left" font="FontTitleSmall">
+    <image x="div(sub({ScreenWidth},ImageWidth('{ResourcePath}/logos/kodi.pbm')),2)" y="1" color="#ColMenuText" path="{ResourcePath}/logos/kodi.pbm"/>
+    <text x1="0" x2="-1" y1="add(ImageHeight('{ResourcePath}/logos/kodi.pbm'),3)" y2="-1" color="#ColMenuText" align="left" font="FontTitleSmall">
       {Info.System.Time}  {Info.System.Date:DDD dd.mm.}
     </text>
-    <text x1="0" x2="-1" y1="add(ImageHeight('{ResourcePath}/logos/kodi.pbm'),23)" y2="-1" color="black" align="center" font="FontTitle">
+    <text x1="0" x2="-1" y1="add(ImageHeight('{ResourcePath}/logos/kodi.pbm'),23)" y2="-1" color="#ColMenuText" align="center" font="FontTitle">
       {Info.System.CurrentControl}
     </text>
     <image x="0" y="sub({ScreenHeight},12)" color="#ColSymbol" path="'symbols/recording.pbm'" condition="{Bool.Pvr.IsRecording}"/>
@@ -121,11 +121,11 @@
 
   <!-- TODO: This needs to be tuned to work on smaller LCD sizes -->
   <display id="general">
-    <image x="div(sub({ScreenWidth},ImageWidth('{ResourcePath}/logos/kodi.pbm')),2)" y="1" color="black" path="{ResourcePath}/logos/kodi.pbm"/>
-    <text x1="0" x2="-1" y1="add(ImageHeight('{ResourcePath}/logos/kodi.pbm'),3)" y2="-1" color="black" align="left" font="FontTitleSmall">
+    <image x="div(sub({ScreenWidth},ImageWidth('{ResourcePath}/logos/kodi.pbm')),2)" y="1" color="#ColMenuText" path="{ResourcePath}/logos/kodi.pbm"/>
+    <text x1="0" x2="-1" y1="add(ImageHeight('{ResourcePath}/logos/kodi.pbm'),3)" y2="-1" color="#ColMenuText" align="left" font="FontTitleSmall">
       {Info.System.Time} {Info.System.Date:DDD dd.mm.}
     </text>
-    <text x1="0" x2="-1" y1="add(ImageHeight('{ResourcePath}/logos/kodi.pbm'),23)" y2="-1" color="black" align="center" font="FontTitle">
+    <text x1="0" x2="-1" y1="add(ImageHeight('{ResourcePath}/logos/kodi.pbm'),23)" y2="-1" color="#ColMenuText" align="center" font="FontTitle">
       Kodi running...
     </text>
   </display>
@@ -134,8 +134,8 @@
   <!-- NOTE: As this is called at the very end, only a few basic -->
   <!--       variables are available. Kodi variables are gone here! -->
   <display id="shutdown">
-    <image x="div(sub({ScreenWidth},ImageWidth('{ResourcePath}/logos/kodi.pbm')),2)" y="1" color="black" path="{ResourcePath}/logos/kodi.pbm"/>
-    <text x1="0" x2="-1" y1="add(ImageHeight('{ResourcePath}/logos/kodi.pbm'),23)" y2="-1" color="black" align="center" font="FontTitle">
+    <image x="div(sub({ScreenWidth},ImageWidth('{ResourcePath}/logos/kodi.pbm')),2)" y="1" color="#ColMenuText" path="{ResourcePath}/logos/kodi.pbm"/>
+    <text x1="0" x2="-1" y1="add(ImageHeight('{ResourcePath}/logos/kodi.pbm'),23)" y2="-1" color="#ColMenuText" align="center" font="FontTitle">
       Shutting down...
     </text>
   </display>
