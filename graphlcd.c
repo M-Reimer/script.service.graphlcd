@@ -246,6 +246,10 @@ extern "C" {
       return NULL;
     }
 
+    // Start with a cleared display
+    gLcd->Clear();
+    gLcd->Refresh(true);
+
     return Py_BuildValue("");
   }
 
@@ -325,7 +329,7 @@ extern "C" {
     }
 
     gLcd->SetScreen(screen.Data(), screen.Width(), screen.Height()); // void
-    gLcd->Refresh(true); // void
+    gLcd->Refresh(false); // void
 
     return Py_BuildValue("");
   }
