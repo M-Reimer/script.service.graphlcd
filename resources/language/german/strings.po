@@ -21,6 +21,9 @@ msgid "Standardhelligkeit"
 msgctxt "#32202"
 msgid "Helligkeit bei Bildschirmschoner"
 
+msgctxt "#32203"
+msgid "Helligkeit bei Video-Wiedergabe"
+
 
 msgctxt "#32300"
 msgid "Scrolling"

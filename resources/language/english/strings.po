@@ -21,6 +21,9 @@ msgid "Default brightness"
 msgctxt "#32202"
 msgid "Brightness on screensaver"
 
+msgctxt "#32203"
+msgid "Brightness on video playback"
+
 
 msgctxt "#32300"
 msgid "Scrolling"

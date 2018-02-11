@@ -6,7 +6,8 @@
     </category>
     <category label="32200">
       <setting label="32201" type="slider" id="brightness" default="100" range="0,1,100" option="percent"/>
-      <setting label="32202" type="slider" id="brightness_screensave" default="70" range="0,1,100" option="percent"/>
+      <setting label="32203" type="slider" id="brightness_video" default="80" range="0,1,100" option="percent"/>
+      <setting label="32202" type="slider" id="brightness_screensave" default="60" range="0,1,100" option="percent"/>
     </category>
     <category label="32300">
       <setting id="scrollmode" type="enum" label="32301" lvalues="32302|32303|32304" default="2" />

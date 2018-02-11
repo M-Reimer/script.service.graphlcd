@@ -246,6 +246,8 @@ if __name__ == '__main__':
     brightness_setting = 0
     if xbmc.getCondVisibility('System.ScreenSaverActive'):
       brightness_setting = int(addon.getSetting('brightness_screensave'))
+    elif xbmcgui.getCurrentWindowId() == WINDOW_IDS.WINDOW_FULLSCREEN_VIDEO:
+      brightness_setting = int(addon.getSetting('brightness_video'))
     else:
       brightness_setting = int(addon.getSetting('brightness'))
     if current_brightness != brightness_setting:
