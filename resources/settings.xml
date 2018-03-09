@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <settings>
     <category label="32100">
-        <setting label="32101" type="select"   id="driver" default="alphacool" values="alphacool|sdcmegtron|avrctl|ax206dpf|dm140gink|framebuffer|g15daemon|gu126x64D-K610A4|gu140x32f|gu256x64-372|gu256x64-3900|hd61830|ili9341|image|ks0108|network|noritake800|sed1330|sed1520|serdisp|simlcd|ssd1306|t6963c|vncserver"/>
+        <setting label="32101" type="select"   id="driver" default="alphacool" values="usbserlcd|alphacool|sdcmegtron|avrctl|ax206dpf|dm140gink|framebuffer|g15daemon|gu126x64D-K610A4|gu140x32f|gu256x64-372|gu256x64-3900|hd61830|ili9341|image|ks0108|network|noritake800|sed1330|sed1520|serdisp|simlcd|ssd1306|t6963c|vncserver"/>
         <setting label="32102" type="select"   id="skin" default="default" values="default"/>
     </category>
     <category label="32200">

@@ -8,7 +8,7 @@ This Addon requires graphlcd-base to be installed and it is recommended to also 
 * https://projects.vdr-developer.org/git/graphlcd-base.git (use the latest GIT version! The last release will not work properly with this Kodi Addon!)
 * http://serdisplib.sourceforge.net/
 
-A list of supported displays can be found on the project homepages. Recommended displays are the USB Displays "SDC Megtron LCD" or "Alphacool LCD". Currently both of them unfortunately are sold out...
+A list of supported displays can be found on the project homepages. As currently there is no USB LCD available on the market, you may also be interested in my [USBserLCD](https://github.com/M-Reimer/usbserlcd) project, which provides Arduino firmware to drive a T6963C based LCD module via USB.
 
 ![Kodi Graphlcd output](https://raw.githubusercontent.com/M-Reimer/script.service.graphlcd/master/icon.png "Kodi Graphlcd output")
 
