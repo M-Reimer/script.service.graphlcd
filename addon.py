@@ -53,7 +53,7 @@ class WINDOW_IDS:
 
 # Returns "cleaned up" volume value as plain integer from 0 (min) to 60 (max)
 def GetPlayerVolume():
-  return 60 + int(float(string.replace(string.replace(xbmc.getInfoLabel('Player.Volume'), ',', '.'), ' dB', '')))
+  return 60 + int(float(xbmc.getInfoLabel('Player.Volume').replace(',', '.').replace(' dB', '')))
 
 
 # Returns the name of the screen which should appear on the LCD in Kodi's
@@ -157,7 +157,7 @@ def GetTokenValue(aVariableName, aAttrib, aIndex, aMaxItems):
     if maxItems > osdItemsSize:
       maxItems = osdItemsSize
 
-    currentIndex = maxItems / 2
+    currentIndex = maxItems // 2
     if (osdCurrentItemIndex < currentIndex):
       currentIndex = osdCurrentItemIndex
 

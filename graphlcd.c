@@ -26,6 +26,11 @@
 
 #include <Python.h>
 
+#if PY_MAJOR_VERSION >= 3
+  #define PyInt_AsLong PyLong_AsLong
+  #define PyInt_Check PyLong_Check
+#endif
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -144,12 +149,25 @@ GLCD::cType cMySkinConfig::GetToken(const GLCD::tSkinToken & Token) {
 
   // We support two types of Python return value. Check for them and do proper
   // type conversion, so graphlcd can handle them.
+#if PY_MAJOR_VERSION < 3
   if (PyString_Check(result)) {
     std::string returnstring;
     returnstring.assign(PyString_AsString(result));
     Py_DECREF(result);
     return returnstring;
   }
+#else
+  if (PyUnicode_Check(result)) {
+    PyObject* temp_bytes = PyUnicode_AsEncodedString(result, "UTF-8", "strict");
+    if (temp_bytes != NULL) {
+      std::string returnstring;
+      returnstring.assign(PyBytes_AS_STRING(temp_bytes));
+      Py_DECREF(temp_bytes);
+      Py_DECREF(result);
+      return returnstring;
+    }
+  }
+#endif
   else if (PyInt_Check(result)) {
     int returninteger = PyInt_AsLong(result);
     Py_DECREF(result);
@@ -233,8 +251,13 @@ extern "C" {
 
     gLcd = GLCD::CreateDriver(GLCD::Config.driverConfigs[displayNumber].id,
                               &GLCD::Config.driverConfigs[displayNumber]);
-    if (!gLcd)
+
+    // This happens if LCD exists in graphlcd.conf but there is no
+    // driver available in the installed graphlcd-base version
+    if (!gLcd) {
+      PyErr_SetString(PyExc_IOError, "Requested driver is invalid");
       return NULL;
+    }
 
     // This happens if wrong LCD type is selected in settings or if the LCD
     // is not connected/detected when Kodi starts
@@ -383,8 +406,24 @@ extern "C" {
     {NULL, NULL, 0, NULL}        /* Sentinel */
   };
 
+#if PY_MAJOR_VERSION < 3
   PyMODINIT_FUNC
   initgraphlcd(void) {
     (void) Py_InitModule("graphlcd", GraphlcdMethods);
   }
+#else
+  static struct PyModuleDef graphlcdmodule = {
+    PyModuleDef_HEAD_INIT,
+    "graphlcd",   /* name of module */
+    NULL, /* module documentation, may be NULL */
+    -1,       /* size of per-interpreter state of the module,
+                 or -1 if the module keeps state in global variables. */
+    GraphlcdMethods
+  };
+
+  PyMODINIT_FUNC
+  PyInit_graphlcd(void) {
+    return PyModule_Create(&graphlcdmodule);
+  }
+#endif
 }
