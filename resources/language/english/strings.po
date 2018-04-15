@@ -4,45 +4,58 @@ msgstr ""
 
 msgctxt "#32100"
 msgid "General"
+msgstr ""
 
 msgctxt "#32101"
 msgid "Driver name"
+msgstr ""
 
 msgctxt "#32102"
 msgid "Skin name"
+msgstr ""
 
 
 msgctxt "#32200"
 msgid "Backlight"
+msgstr ""
 
 msgctxt "#32201"
 msgid "Default brightness"
+msgstr ""
 
 msgctxt "#32202"
 msgid "Brightness on screensaver"
+msgstr ""
 
 msgctxt "#32203"
 msgid "Brightness on video playback"
+msgstr ""
 
 
 msgctxt "#32300"
 msgid "Scrolling"
+msgstr ""
 
 msgctxt "#32301"
 msgid "Scroll text lines"
+msgstr ""
 
 msgctxt "#32302"
 msgid "never"
+msgstr ""
 
 msgctxt "#32303"
 msgid "once"
+msgstr ""
 
 msgctxt "#32304"
 msgid "always"
+msgstr ""
 
 msgctxt "#32305"
 msgid "Scroll speed"
+msgstr ""
 
 msgctxt "#32306"
 msgid "Scroll time interval"
-
+msgstr ""

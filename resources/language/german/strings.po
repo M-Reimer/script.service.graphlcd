@@ -3,45 +3,59 @@ msgstr ""
 "Language: de\n"
 
 msgctxt "#32100"
-msgid "Allgemein"
+msgid "General"
+msgstr "Allgemein"
 
 msgctxt "#32101"
-msgid "Treiber Name"
+msgid "Driver name"
+msgstr "Treiber Name"
 
 msgctxt "#32102"
-msgid "Skin Name"
+msgid "Skin name"
+msgstr "Skin Name"
 
 
 msgctxt "#32200"
-msgid "Hintergrundbeleuchtung"
+msgid "Backlight"
+msgstr "Hintergrundbeleuchtung"
 
 msgctxt "#32201"
-msgid "Standardhelligkeit"
+msgid "Default brightness"
+msgstr "Standardhelligkeit"
 
 msgctxt "#32202"
-msgid "Helligkeit bei Bildschirmschoner"
+msgid "Brightness on screensaver"
+msgstr "Helligkeit bei Bildschirmschoner"
 
 msgctxt "#32203"
-msgid "Helligkeit bei Video-Wiedergabe"
+msgid "Brightness on video playback"
+msgstr "Helligkeit bei Video-Wiedergabe"
 
 
 msgctxt "#32300"
 msgid "Scrolling"
+msgstr "Scrolling"
 
 msgctxt "#32301"
-msgid "Textzeilen scrollen"
+msgid "Scroll text lines"
+msgstr "Textzeilen scrollen"
 
 msgctxt "#32302"
-msgid "niemals"
+msgid "never"
+msgstr "niemals"
 
 msgctxt "#32303"
-msgid "einmal"
+msgid "once"
+msgstr "einmal"
 
 msgctxt "#32304"
-msgid "ständig"
+msgid "always"
+msgstr "ständig"
 
 msgctxt "#32305"
-msgid "Scrollgeschwindigkeit"
+msgid "Scroll speed"
+msgstr "Scrollgeschwindigkeit"
 
 msgctxt "#32306"
-msgid "Zeitabstand beim Scrollen"
+msgid "Scroll time interval"
+msgstr "Zeitabstand beim Scrollen"
