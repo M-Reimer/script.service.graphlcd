@@ -42,6 +42,8 @@ class WINDOW_IDS:
   WINDOW_HOME                  = 10000
   WINDOW_VIDEO_NAV             = 10025
   WINDOW_ADDON_BROWSER         = 10040
+  WINDOW_DIALOG_ADDON_SETTINGS = 10140
+  WINDOW_DIALOG_ADDON_INFO     = 10146
   WINDOW_MUSIC_NAV             = 10502
   WINDOW_FULLSCREEN_VIDEO      = 12005
   WINDOW_VISUALISATION         = 12006
@@ -61,14 +63,18 @@ def GetPlayerVolume():
 # current state
 def GetCurrentScreenName():
   windowid = xbmcgui.getCurrentWindowId()
+  dialogid = xbmcgui.getCurrentWindowDialogId()
   LogDebug('Window ID: ' + str(windowid))
+  LogDebug('Window Dialog ID: ' + str(dialogid))
   LogDebug('NumItems: ' + xbmc.getInfoLabel('Container.NumItems'))
 
   if windowid == WINDOW_IDS.WINDOW_HOME:
     return 'navigation'
   if windowid == WINDOW_IDS.WINDOW_MUSIC_NAV or \
      windowid == WINDOW_IDS.WINDOW_VIDEO_NAV or \
-     windowid == WINDOW_IDS.WINDOW_ADDON_BROWSER or \
+     (windowid == WINDOW_IDS.WINDOW_ADDON_BROWSER and not \
+      dialogid == WINDOW_IDS.WINDOW_DIALOG_ADDON_INFO and not \
+      dialogid == WINDOW_IDS.WINDOW_DIALOG_ADDON_SETTINGS) or \
      windowid == WINDOW_IDS.WINDOW_TV_CHANNELS_OLD or \
      windowid == WINDOW_IDS.WINDOW_TV_RECORDINGS_OLD or \
      windowid == WINDOW_IDS.WINDOW_RADIO_CHANNELS_OLD or \
