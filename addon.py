@@ -17,7 +17,6 @@
 import xbmc
 import xbmcaddon
 import xbmcgui
-import string
 
 addon         = xbmcaddon.Addon()
 resourcespath = xbmc.translatePath(addon.getAddonInfo('path')) + '/resources'
@@ -25,6 +24,7 @@ resourcespath = xbmc.translatePath(addon.getAddonInfo('path')) + '/resources'
 sys.path.insert(0, resourcespath + '/lib')
 import graphlcd
 import channelsalias
+import menucache
 
 
 def NotifyError(aMessage):
@@ -137,34 +137,22 @@ def GetTokenValue(aVariableName, aAttrib, aIndex, aMaxItems):
   # Menu variables
   elif aVariableName == 'MenuItem' or \
        aVariableName == 'IsMenuCurrent':
-    infolabelcuritem = xbmc.getInfoLabel('Container.CurrentItem')
-    infolabelnumitems = xbmc.getInfoLabel('Container().NumItems')
-    # Empty values happen if the menu is closing or opening.
-    if infolabelcuritem == '' or infolabelnumitems == '':
-      return ''
-    osdCurrentItemIndex = int(infolabelcuritem) - 1
-    osdItemsSize = int(infolabelnumitems)
 
-    # "Folder lists" have a leading ".." item.
-    if xbmc.getCondVisibility('Container.HasParent'):
-      osdCurrentItemIndex += 1
-      osdItemsSize += 1
-
-    if osdItemsSize == 0:
+    if menucache.GetItemsSize() == 0:
       return ''
 
     maxItems = aMaxItems
-    if maxItems > osdItemsSize:
-      maxItems = osdItemsSize
+    if maxItems > menucache.GetItemsSize():
+      maxItems = menucache.GetItemsSize()
 
     currentIndex = maxItems // 2
-    if (osdCurrentItemIndex < currentIndex):
-      currentIndex = osdCurrentItemIndex
+    if (menucache.GetCurrentItemIndex() < currentIndex):
+      currentIndex = menucache.GetCurrentItemIndex()
 
-    topIndex = osdCurrentItemIndex - currentIndex
-    if (topIndex + maxItems) > osdItemsSize:
-      currentIndex += (topIndex + maxItems) - osdItemsSize
-      topIndex = osdCurrentItemIndex - currentIndex
+    topIndex = menucache.GetCurrentItemIndex() - currentIndex
+    if (topIndex + maxItems) > menucache.GetItemsSize():
+      currentIndex += (topIndex + maxItems) - menucache.GetItemsSize()
+      topIndex = menucache.GetCurrentItemIndex() - currentIndex
 
     if aVariableName == 'MenuItem':
       if aIndex < maxItems:
@@ -255,8 +243,13 @@ if __name__ == '__main__':
       graphlcd.SetBrightness(brightness_setting)
       current_brightness = brightness_setting
 
+    # For menus, update the menucache before rendering
+    screenname = GetCurrentScreenName()
+    if (screenname == 'menu'):
+      menucache.Update()
+
     # Render display
-    graphlcd.Render(GetCurrentScreenName(), GetCurrentOverlayName(), GetTokenValue)
+    graphlcd.Render(screenname, GetCurrentOverlayName(), GetTokenValue)
 
 
   # Before stopping Addon, send the "shutdown screen" to the LCD.
