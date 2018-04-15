@@ -41,6 +41,7 @@ def LogDebug(aMessage):
 class WINDOW_IDS:
   WINDOW_HOME                  = 10000
   WINDOW_VIDEO_NAV             = 10025
+  WINDOW_ADDON_BROWSER         = 10040
   WINDOW_MUSIC_NAV             = 10502
   WINDOW_FULLSCREEN_VIDEO      = 12005
   WINDOW_VISUALISATION         = 12006
@@ -67,6 +68,7 @@ def GetCurrentScreenName():
     return 'navigation'
   if windowid == WINDOW_IDS.WINDOW_MUSIC_NAV or \
      windowid == WINDOW_IDS.WINDOW_VIDEO_NAV or \
+     windowid == WINDOW_IDS.WINDOW_ADDON_BROWSER or \
      windowid == WINDOW_IDS.WINDOW_TV_CHANNELS_OLD or \
      windowid == WINDOW_IDS.WINDOW_TV_RECORDINGS_OLD or \
      windowid == WINDOW_IDS.WINDOW_RADIO_CHANNELS_OLD or \
