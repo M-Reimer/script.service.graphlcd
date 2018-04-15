@@ -21,13 +21,16 @@ $(PRGNAME): $(OBJS)
 	@mkdir -p $(dir $(PRGNAME))
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -shared -rdynamic $(OBJS) $(LIBS) $(LIBDIRS) -o $(PRGNAME)
 
-install: $(PRGNAME)
+install: clean-python $(PRGNAME)
 	install -d $(DESTDIR)$(ADDONDIR)
 	install -m 644 addon.py $(DESTDIR)$(ADDONDIR)
 	install -m 644 addon.xml $(DESTDIR)$(ADDONDIR)
 	install -m 644 icon.png $(DESTDIR)$(ADDONDIR)
-	rm -f resources/lib/*.pyo
 	cp -vr resources $(DESTDIR)$(ADDONDIR)
 
-clean:
-	@-rm -f $(OBJS) $(PRGNAME) resources/lib/*.pyo *~
+clean-python:
+	@rm -f resources/lib/*.pyo
+	@rm -rf resources/lib/__pycache__
+
+clean: clean-python
+	@rm -f $(OBJS) $(PRGNAME) *~

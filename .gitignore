@@ -1,3 +1,4 @@
 *.o
 *.so
 *.pyo
+resources/lib/__pycache__/
