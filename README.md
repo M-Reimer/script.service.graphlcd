@@ -3,7 +3,7 @@ Graphlcd Addon for Kodi
 
 This Kodi Addon allows to drive a graphical LCD with Kodi, allowing to navigate the menu and basic lists and to view information about the current playback.
 
-This Addon requires graphlcd-base to be installed and it is possible to also install serdisplib, which brings some more LCD drivers. Both dependencies can be found via the following links:
+This Addon requires graphlcd-base to be installed and it is optionally possible to also install serdisplib, which brings some more LCD drivers. Both dependencies can be found via the following links:
 
 * https://projects.vdr-developer.org/git/graphlcd-base.git
 * http://serdisplib.sourceforge.net/
