@@ -184,7 +184,7 @@
 
     <rectangle x="0" y="0" width="#ChannelBarW" height="#ChannelBarH" color="#ColChannelBG" filled="yes" />
     <text x="#PaddingW" y="0" width="sub(#ChannelBarW,mul(#PaddingW,2),1)" height="FontLineHeight('FontChannel')" color="#ColChannelInfo" align="left" scrollmode="never" font="FontChannel">
-      {Info.VideoPlayer.ChannelNumber} | {Info.VideoPlayer.ChannelName}
+      {Info.VideoPlayer.ChannelNumberLabel} | {Info.VideoPlayer.ChannelName}
     </text>
     <text condition="not(and(#LogoSymbSmall,#ShowChannelLogo))" x="#PaddingW" y="add(FontLineHeight('FontChannel'))" width="sub(#ChannelBarW,mul(#PaddingW,2),1)" height="FontLineHeight('FontInfo')" color="#ColDateTime" align="left" font="FontInfo">
       {Info.System.Date:ddd dd.mm.}
