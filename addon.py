@@ -42,6 +42,7 @@ class WINDOW_IDS:
   WINDOW_HOME                  = 10000
   WINDOW_VIDEO_NAV             = 10025
   WINDOW_ADDON_BROWSER         = 10040
+  WINDOW_DIALOG_CONTEXT_MENU   = 10106
   WINDOW_DIALOG_ADDON_SETTINGS = 10140
   WINDOW_DIALOG_ADDON_INFO     = 10146
   WINDOW_MUSIC_NAV             = 10502
@@ -67,6 +68,11 @@ def GetCurrentScreenName():
   LogDebug('Window ID: ' + str(windowid))
   LogDebug('Window Dialog ID: ' + str(dialogid))
   LogDebug('NumItems: ' + xbmc.getInfoLabel('Container.NumItems'))
+
+  # TODO: Maybe make this an overlay with just one menu item
+  #       Render "general" screen for now so we see the selected entry
+  if dialogid == WINDOW_IDS.WINDOW_DIALOG_CONTEXT_MENU:
+    return 'general'
 
   if windowid == WINDOW_IDS.WINDOW_HOME:
     return 'navigation'
