@@ -312,8 +312,9 @@
     <variable id="ReplayProgressGap" value="1"/>
     <variable id="ReplayTimeY" value="mul(FontLineHeight('FontInfo'),-1)"/>
     <variable id="ReplayProgressY" value="sub(#ReplayTimeY,#ReplayProgressH,#ReplayProgressGap)"/>
+    <variable id="ReplayLogoName" value="'twitch'" condition="eq({Info.Player.Folderpath},'plugin://plugin.video.twitch/')"/>
     <variable id="ReplayLogoName" value="'replay-file'" default="'replay-music'" condition="{Bool.Player.HasVideo}"/>
-    <variable id="ReplayLogoSuffix" value="'_m.glcd'" default="'_l.glcd'" condition="le({ScreenHeight},64)"/>
+    <variable id="ReplayLogoSuffix" value="'_m.pbm'" default="'_l.pbm'" condition="le({ScreenHeight},64)"/>
     <variable id="ReplayLogo" value="'{ResourcePath}/logos/replay/#ReplayLogoName#ReplayLogoSuffix'"/>
     <variable id="ReplayLogoW" value="ImageWidth(#ReplayLogo)" />
     <variable id="ReplayLogoH" value="ImageHeight(#ReplayLogo)" />
