@@ -2,6 +2,15 @@ Das Erste:DAS_ERSTE
 Das Erste HD:DAS_ERSTE
 ZDF:ZDF
 ZDF HD:ZDF
+zdf_neo HD:ZDF_NEO
+arte HD:ARTE
+BR Fernsehen Nord HD:BR_FERNSEHEN
+BR Fernsehen Süd HD:BR_FERNSEHEN
+rbb Brandenburg:RBB
+rbb Brandenburg HD:RBB
+rbb Berlin:RBB
+rbb Berlin HD:RBB
+
 ProSieben:PRO_SIEBEN
 RTL Television:RTL_TELEVISION
 RTL HB NDS:RTL_TELEVISION
@@ -24,6 +33,7 @@ DMAX:DMAX
 KiKA:KIKA
 KiKA HD:KIKA
 3sat:3SAT
+3sat HD:3SAT
 kabel eins:KABEL_1
 
 sunshine live:SUNSHINE_LIVE
