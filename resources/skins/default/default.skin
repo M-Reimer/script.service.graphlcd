@@ -1,32 +1,32 @@
 <?xml version="1.0"?>
 <skin version="1.2" name="default">
 
-  <font id="FontInfo"          url="ft2:VeraBd.ttf:9"               condition="le({ScreenHeight},65)"/>
-  <font id="FontChannel"       url="ft2:VeraBd.ttf:12"              condition="le({ScreenHeight},65)"/>
-  <font id="FontMenuTitle"     url="ft2:Vera.ttf:8"                 condition="le({ScreenHeight},65)"/>
+  <font id="FontInfo"          url="ft2:DejaVuSans-Bold.ttf:9"      condition="le({ScreenHeight},65)"/>
+  <font id="FontChannel"       url="ft2:DejaVuSans-Bold.ttf:12"     condition="le({ScreenHeight},65)"/>
+  <font id="FontMenuTitle"     url="ft2:DejaVuSans.ttf:8"           condition="le({ScreenHeight},65)"/>
   <font id="FontMenuItem"      url="ft2:DejaVuSansCondensed.ttf:8"  condition="le({ScreenHeight},65)"/>
   <font id="FontMenuButton"    url="ft2:DejaVuSansCondensed.ttf:8"  condition="le({ScreenHeight},65)"/>
-  <font id="FontTitle"         url="ft2:VeraBd.ttf:9"               condition="le({ScreenHeight},65)"/>
-  <font id="FontTitleSmall"    url="ft2:VeraBd.ttf:8"               condition="le({ScreenHeight},65)"/>
-  <font id="FontInfoSmall"     url="ft2:Vera.ttf:8"                 condition="le({ScreenHeight},65)"/>
-  <font id="FontInfoSmall2"    url="ft2:Vera.ttf:7"                 condition="le({ScreenHeight},65)"/>
+  <font id="FontTitle"         url="ft2:DejaVuSans-Bold.ttf:9"      condition="le({ScreenHeight},65)"/>
+  <font id="FontTitleSmall"    url="ft2:DejaVuSans-Bold.ttf:8"      condition="le({ScreenHeight},65)"/>
+  <font id="FontInfoSmall"     url="ft2:DejaVuSans.ttf:8"           condition="le({ScreenHeight},65)"/>
+  <font id="FontInfoSmall2"    url="ft2:DejaVuSans.ttf:7"           condition="le({ScreenHeight},65)"/>
   <font id="FontTimes"         url="fnt:f8n.fnt"                    condition="le({ScreenHeight},65)"/>
 
-  <font id="FontTitle"         url="ft2:VeraBd.ttf:24"              condition="gt({ScreenHeight},128)"/>
-  <font id="FontTitleSmall"    url="ft2:Vera.ttf:20"                condition="gt({ScreenHeight},128)"/>
-  <font id="FontInfoSmall"     url="ft2:VeraBd.ttf:16"              condition="gt({ScreenHeight},128)"/>
-  <font id="FontInfoSmall2"    url="ft2:Vera.ttf:14"                condition="gt({ScreenHeight},128)"/>
+  <font id="FontTitle"         url="ft2:DejaVuSans-Bold.ttf:24"     condition="gt({ScreenHeight},128)"/>
+  <font id="FontTitleSmall"    url="ft2:DejaVuSans.ttf:20"          condition="gt({ScreenHeight},128)"/>
+  <font id="FontInfoSmall"     url="ft2:DejaVuSans-Bold.ttf:16"     condition="gt({ScreenHeight},128)"/>
+  <font id="FontInfoSmall2"    url="ft2:DejaVuSans.ttf:14"          condition="gt({ScreenHeight},128)"/>
 
-  <font id="FontInfo"          url="ft2:Vera.ttf:18"/>
-  <font id="FontChannel"       url="ft2:VeraBd.ttf:22"/>
-  <font id="FontMenuTitle"     url="ft2:Vera.ttf:15"/>
-  <font id="FontMenuItem"      url="ft2:Vera.ttf:12"/>
-  <font id="FontMenuButton"    url="ft2:VeraBd.ttf:9"/>
-  <font id="FontTitle"         url="ft2:VeraBd.ttf:20" />
-  <font id="FontTitleSmall"    url="ft2:Vera.ttf:14" />
-  <font id="FontInfoSmall"     url="ft2:VeraBd.ttf:10"/>
-  <font id="FontInfoSmall2"    url="ft2:Vera.ttf:10"/>
-  <font id="FontTimes"         url="ft2:Vera.ttf:14"/>
+  <font id="FontInfo"          url="ft2:DejaVuSans.ttf:18"/>
+  <font id="FontChannel"       url="ft2:DejaVuSans-Bold.ttf:22"/>
+  <font id="FontMenuTitle"     url="ft2:DejaVuSans.ttf:15"/>
+  <font id="FontMenuItem"      url="ft2:DejaVuSans.ttf:12"/>
+  <font id="FontMenuButton"    url="ft2:DejaVuSans-Bold.ttf:9"/>
+  <font id="FontTitle"         url="ft2:DejaVuSans-Bold.ttf:20" />
+  <font id="FontTitleSmall"    url="ft2:DejaVuSans.ttf:14" />
+  <font id="FontInfoSmall"     url="ft2:DejaVuSans-Bold.ttf:10"/>
+  <font id="FontInfoSmall2"    url="ft2:DejaVuSans.ttf:10"/>
+  <font id="FontTimes"         url="ft2:DejaVuSans.ttf:14"/>
 
   <variable id="LineThickness" value="1" condition="le({ScreenHeight},65)" default="2" />
   <variable id="PaddingW"       value="0" condition="le({ScreenHeight},65)" />
