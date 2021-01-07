@@ -140,7 +140,7 @@ def GetTokenValue(aVariableName, aAttrib, aIndex, aMaxItems):
 
   # Playback times
   elif aVariableName == 'PlayerDuration':
-    return GetTime('Player.Duration')
+    return GetTime('Player.Duration') or GetTime('PVR.EpgEventDuration')
   elif aVariableName == 'PlayerTime':
     return GetTime('Player.Time')
 
