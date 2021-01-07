@@ -203,7 +203,7 @@
     </block>
     <block condition="{Info.VideoPlayer.NextTitle}">
       <text x1="0" x2="-1" y1="#TimeBarY" y2="-1" color="#ColPresProgrText" align="left" font="FontTimes">
-        {Info.Player.StartTime} - {Info.VideoPlayer.NextStartTime}
+        {Info.VideoPlayer.StartTime} - {Info.VideoPlayer.NextStartTime}
       </text>
       <rectangle x="#PaddingW" width="#TimeBarW" y="add(#TimeBarY,#PaddingH,FontLineHeight('FontTimes'))" height="6" color="#ColPresProgrBarBrd"/>
       <progress x="add(#PaddingW,2)" width="sub(#TimeBarW,4)" y1="add(#TimeBarY,#PaddingH,FontLineHeight('FontTimes'),2)" height="2" color="#ColPresProgrBar" direction="0" current="{PlayerTime}" total="{PlayerDuration}"/>
