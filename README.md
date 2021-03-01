@@ -28,10 +28,3 @@ Global installation (for all users on this system):
     cd script.service.graphlcd
     make
     sudo make install
-
-Python 3 support
-----------------
-
-Kodi will [migrate to Python 3](https://kodi.wiki/view/General_information_about_migration_to_Python_3). For development and testing purposes, it is already possible to build the graphlcd addon with Python 3 support:
-
-    make PYTHONVERSION=3
