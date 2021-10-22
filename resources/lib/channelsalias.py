@@ -17,7 +17,7 @@
 _gChannelAlias = {}
 
 def Load(aPath):
-  fh = open(aPath)
+  fh = open(aPath, encoding="utf-8")
   for line in fh:
     parts = line.strip().split(':')
     if len(parts) == 2:
