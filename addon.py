@@ -21,10 +21,9 @@ import xbmcgui
 addon         = xbmcaddon.Addon()
 resourcespath = xbmc.translatePath(addon.getAddonInfo('path')) + '/resources'
 
-sys.path.insert(0, resourcespath + '/lib')
-import graphlcd
-import channelsalias
-import menucache
+import resources.lib.graphlcd as graphlcd
+import resources.lib.channelsalias as channelsalias
+import resources.lib.menucache as menucache
 
 
 def NotifyError(aMessage):
