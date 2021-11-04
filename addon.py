@@ -14,6 +14,8 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import re
+
 import xbmc
 import xbmcaddon
 import xbmcgui
@@ -120,12 +122,20 @@ def GetCurrentOverlayName():
     return ''
 
 
+# Removes formatting strings from labels
+# https://kodi.wiki/view/Label_Formatting
+def remove_label_formatting(label):
+  return re.sub(r'\[\/?(?:B|I|LIGHT|COLOR|UPPERCASE|LOWERCASE|CAPITALIZE|CR).*?\]', '', label);
+
+
 # The C(++) part calls into this callback function to get values for token names
 def GetTokenValue(aVariableName, aAttrib, aIndex, aMaxItems):
   # Kodi "Builtins" (Prefixed with "Info." or "Bool.")
   if aVariableName.startswith('Info.'):
     if aAttrib != '':
       return xbmc.getInfoLabel(aVariableName[5:] + '(' + aAttrib + ')')
+    elif aVariableName == 'Info.Player.Title':
+      return remove_label_formatting(xbmc.getInfoLabel(aVariableName[5:]))
     else:
       return xbmc.getInfoLabel(aVariableName[5:])
   elif aVariableName.startswith('Bool.'):
@@ -175,7 +185,7 @@ def GetTokenValue(aVariableName, aAttrib, aIndex, aMaxItems):
 
     if aVariableName == 'MenuItem':
       if aIndex < maxItems:
-        return xbmc.getInfoLabel('Container().ListItemAbsolute(' + str(topIndex + aIndex) + ').Label')
+        return remove_label_formatting(xbmc.getInfoLabel('Container().ListItemAbsolute(' + str(topIndex + aIndex) + ').Label'))
 
     if aVariableName == 'IsMenuCurrent':
       if aIndex < maxItems and aIndex == currentIndex:
